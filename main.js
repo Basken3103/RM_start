@@ -33,23 +33,25 @@ function nextPrev(data) {
     let nextLink = ""
     let prevLink = ""
 
+
+
     if (data.next) {
         nextLink = `<li><a href=${data.next}>NEXT</a></li>`
     }
     else {
-        const prevLink = `<li><a class="notactive">NEXT</a></li>`
+        nextLink = `<li><a class="notactive">NEXT</a></li>`
     }
-    console.log(nextLink);
-    console.log(prevLink);
+
+
     //
     if (data.prev) {
-
+        prevLink = `<li><a href=${data.prev}>PREV</a></li>`
     }
     else {
-
+        prevLink = `<li><a href=${data.prev}>PREV</a></li>`
     }
 
-    // Nået til 11:54 i Steens 07-RM-fetchAsync--2025-08-19
+    // Nået til 16:05 i Steens 07-RM-fetchAsync--2025-08-19
 
 
 
