@@ -41,30 +41,37 @@ function handleData(data) {
 
 function nextPrev(data) {
 
-    const next = data.next
-    const prev = data.prev
+    // const next = data.next
+    // const prev = data.prev
 
 
-    let nextLink = ""
-    let prevLink = ""
+    // let nextLink = ""
+    // let prevLink = ""
 
 
+    // //Betingelser der tager den næste.
 
-    if (data.next) {
-        nextLink = `<li><a href=${data.next}>NEXT</a></li>`
-    }
-    else {
-        nextLink = `<li><a class="notactive">NEXT</a></li>`
-    }
+    // if (data.next) {
+    //     nextLink = `<li><a href=${data.next}>NEXT</a></li>`
+    // }
+    // else {
+    //     nextLink = `<li><a class="notactive">NEXT</a></li>`
+    // }
 
 
-    //
-    if (data.prev) {
-        prevLink = `<li><a href=${data.prev}>PREV</a></li>`
-    }
-    else {
-        prevLink = `<li><a class="notactive">PREV</a></li>`
-    }
+    // //Betingelser der tager den forgående.
+    // if (data.prev) {
+    //     prevLink = `<li><a href=${data.prev}>PREV</a></li>`
+    // }
+    // else {
+    //     prevLink = `<li><a class="notactive">PREV</a></li>`
+    // }
+
+    let nextLink = data.next ?/*html*/  `<li><a href="${data.next}">NEXT</a> </li>` : /*html*/  `<li><a class ="inactive">NEXT</a> </li>`
+
+    let prevLink = data.prev ?/*html*/  `<li><a href="${data.prev}">PREV</a> </li>` : /*html*/  `<li><a class ="inactive">PREV</a> </li>`
+
+
 
     let ul = `<ul id = "nextprev">${nextLink}${prevLink} </ul>`
     wrapper.insertAdjacentHTML("afterbegin", ul)
