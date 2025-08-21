@@ -1,6 +1,15 @@
 const url = "https://rickandmortyapi.com/api/character"
 const wrapper = document.querySelector("#wrapper")
 
+async function renderPage(url) {
+    try {
+        const respons = await fetch(url)
+    }
+    catch { error } {
+
+    }
+}
+
 fetch(url)
     .then((result) => result.json())
     .then((data) => {
@@ -48,12 +57,27 @@ function nextPrev(data) {
         prevLink = `<li><a href=${data.prev}>PREV</a></li>`
     }
     else {
-        prevLink = `<li><a href=${data.prev}>PREV</a></li>`
+        prevLink = `<li><a class="notactive">PREV</a></li>`
     }
 
-    // Nået til 16:05 i Steens 07-RM-fetchAsync--2025-08-19
+    let ul = `<ul id>"nextprev">${nextLink}${prevLink} </ul>`
+    wrapper.insertAdjacentHTML("afterbegin", ul)
+    const nextprev = document.querySelector("#nextprev li a")
+    console.log(nextprev);
+
+    nextprev.addEventListener("click", handleClick)
 
 
 
+
+    // Nået til 27:51 i Steens 07-RM-fetchAsync--2025-08-19
+
+
+
+
+}
+
+function handleClick(event) {
+    event.preventDefault()
 
 }
