@@ -4,6 +4,10 @@ const wrapper = document.querySelector("#wrapper")
 async function renderPage(url) {
     try {
         const respons = await fetch(url)
+        const data = await respons.json()
+        //console.log(data);
+        handleData(data)
+
     }
     catch { error } {
 
@@ -18,6 +22,8 @@ fetch(url)
 
 
 function handleData(data) {
+
+    wrapper.innerHTML = ""
 
 
     nextPrev(data.info)
@@ -60,24 +66,21 @@ function nextPrev(data) {
         prevLink = `<li><a class="notactive">PREV</a></li>`
     }
 
-    let ul = `<ul id>"nextprev">${nextLink}${prevLink} </ul>`
+    let ul = `<ul id = "nextprev">${nextLink}${prevLink} </ul>`
     wrapper.insertAdjacentHTML("afterbegin", ul)
-    const nextprev = document.querySelector("#nextprev li a")
+    const nextprev = document.querySelectorAll("#nextprev li a")
     console.log(nextprev);
+    nextprev.forEach((link) => {
+        link.addEventListener("click", handleClick)
 
-    nextprev.addEventListener("click", handleClick)
-
-
-
-
-    // Nået til 27:51 i Steens 07-RM-fetchAsync--2025-08-19
-
-
-
+    })
 
 }
 
 function handleClick(event) {
     event.preventDefault()
+    let link = event.target.href
+
+    renderPage(link)
 
 }
